@@ -1,0 +1,21 @@
+{
+  "name": "fake-5ch",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "A fully simulated, browseable internet generated on the fly by a local LLM. Search results, every page you click, and every link inside those pages are hallucinated by the model in real time. Fake 5ch generated on the fly by a local world model — fork of qwen-agentworld web simulator.",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fastify": "^5.8.5",
+    "node-html-parser": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
