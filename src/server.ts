@@ -14,6 +14,16 @@ import { renderHome, renderSerp, renderPage, renderErrorBody, renderSettings } f
 
 const app = Fastify({ logger: false });
 
+// Baseline hardening on every response. /raw sets its own stricter CSP; these
+// headers protect the top-level app shell — notably /settings, which is
+// unauthenticated and can rewrite the LLM endpoint + API key, so denying it
+// from being framed blocks clickjacking of that surface.
+app.addHook('onSend', async (_req, reply) => {
+  reply.header('X-Content-Type-Options', 'nosniff');
+  if (!reply.getHeader('X-Frame-Options')) reply.header('X-Frame-Options', 'SAMEORIGIN');
+  if (!reply.getHeader('Referrer-Policy')) reply.header('Referrer-Policy', 'no-referrer');
+});
+
 function hostOf(url: string): string { try { return new URL(url).hostname; } catch { return 'the server'; } }
 
 // ---- static assets --------------------------------------------------------
