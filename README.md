@@ -7,7 +7,7 @@
 ![fake-5ch home](docs/01-home.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-success.svg)](https://nodejs.org/)
+[![Node 22.13+](https://img.shields.io/badge/node-%E2%89%A522.13-success.svg)](https://nodejs.org/)
 [![Model: Qwen-AgentWorld](https://img.shields.io/badge/model-Qwen--AgentWorld--35B--A3B-blue.svg)](https://arxiv.org/abs/2606.24597)
 
 > English readers: this is the 5ch-flavored Japanese sibling of **[virtual-4chan](https://github.com/tak633b/virtual-4chan)**. Same engine, different board culture. See virtual-4chan's README for the English explanation.
@@ -86,7 +86,7 @@ TypeScript ~1100 行、外部依存 2 個（`fastify`、`node-html-parser`）。
 
 ### 前提
 
-- **Node 20+**
+- **Node 22.13+**（`node:sqlite` をフラグなしで使うため）
 - **OpenAI 互換のチャットエンドポイント。** 推奨: [LM Studio](https://lmstudio.ai) でモデルブラウザから *"agentworld"* を検索 → `qwen-agentworld-35b-a3b` をダウンロード (4bit なら VRAM ~20GB) → ローカルサーバー ON。
 
 ### インストール
